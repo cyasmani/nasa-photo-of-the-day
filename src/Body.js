@@ -1,14 +1,25 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Jumbotron} from "reactstrap";
+import axios from "axios";
 
-function Body () {
+
+function Body (props) {
+
+    const {bodyGetData, getData} = props;
+
+    console.log(props.bodyGetData);
+
+    
     return (
             <div>
                 <Jumbotron>
                     <h1 className="display-3">Nasa Photo of The Day</h1>
-                    <p className="lead">This is a simple hero unit, a simple Jumbotron-style component for calling extra attention to featured content or information.</p>
+                    <p className="lead">{props.bodyGetData.title}</p>
                     <hr className="my-2" />
-                    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>                  
+                    <p>{props.bodyGetData.date}</p>
+                    <img src={props.bodyGetData.hdurl}></img>
+                    <p>{props.bodyGetData.explanation}</p>
+              
                 </Jumbotron>
             </div>
     )

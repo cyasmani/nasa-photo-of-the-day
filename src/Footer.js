@@ -3,10 +3,19 @@ import { Container } from "reactstrap";
 import footer from "./"
 
 
-function Footer() {
+function Footer(props) {
+
+    const {footerData, footerGetData} = props;
+
     return (
         <div>
-            <Container className="themed-container" fluid="lg">Footer</Container>
+            <Container className="themed-container" fluid="lg">
+                <p>{props.footerGetData.copyright}</p>
+
+
+            
+        
+            </Container>
             
         </div>
     )
